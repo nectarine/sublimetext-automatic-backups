@@ -6,7 +6,7 @@ import re
 import datetime
 
 if sublime.platform() == 'windows':
-    import win32helpers
+    from .win32helpers import *
 
 settings = None
 
@@ -24,7 +24,7 @@ def get_base_dir():
     # Windows: <user folder>/My Documents/Sublime Text Backups
     if sublime.platform() == 'windows':
         return os.path.join(
-            win32helpers.get_shell_folder('Personal'),
+            get_shell_folder('Personal'),
             'Sublime Text Backups')
 
     # Linux/OSX/other: ~/sublime_backups

@@ -1,5 +1,5 @@
-Automatic Backups for Sublime Text 3
-====================================
+Automatic Backups for Sublime Text 3 (Tested on Windows 7 (x64) only)
+=====================================================================
 
 A Sublime Text 2 plugin to automatically save off a backup of your files each time you save.
 

@@ -4,8 +4,7 @@ import os
 import re
 import sublime
 from subprocess import Popen
-
-from . import backup_paths
+from .backup_paths import *
 
 settings = None
 
@@ -34,7 +33,7 @@ class BackupsNavigator:
         self.current_file = fn
 
         (f, ext) = os.path.splitext(os.path.split(fn)[1])
-        self.backup_path = backup_paths.get_backup_path(view.file_name())
+        self.backup_path = get_backup_path(view.file_name())
 
         dir_listing = os.listdir(self.backup_path)
         dir_listing.sort()

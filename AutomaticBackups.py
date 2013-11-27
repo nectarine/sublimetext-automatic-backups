@@ -2,10 +2,12 @@
 #
 import sublime
 import sublime_plugin
-import os
+import os,sys
 import shutil
 
-from . import backup_paths
+sys.path.append(os.path.abspath("./"))
+
+from .backup_paths import *
 from .backups_navigator import BackupsNavigator
 
 nav = BackupsNavigator()  # our backup navigator state manager
@@ -18,7 +20,7 @@ class AutomaticBackupsEventListener(sublime_plugin.EventListener):
     gives you a rudimentary mechanism for making sure you don't lose
     information while working."""
 
-
+ 
     def on_post_save(self, view):
         """When a file is saved, put a copy of the file into the
         backup directory."""
@@ -46,7 +48,7 @@ class AutomaticBackupsEventListener(sublime_plugin.EventListener):
             return
 
         filename = view.file_name()
-        newname = backup_paths.get_backup_filepath(filename)
+        newname = get_backup_filepath(filename)
         if newname == None:
             return
 
